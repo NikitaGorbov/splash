@@ -9,6 +9,11 @@ char *get_word(int *endOfLineFlag) {
     do {
         c = getchar();
         word = realloc(word, sizeof(char) * (i + 1));
+        if (!word) {
+            printf("Realloc failed\n");
+            free(word);
+            exit(1);
+        }
         word[i - 1] = c;
         i++;
     } while (c != ' ' && c != '\n');
@@ -25,6 +30,11 @@ char **get_list() {
 
     do {
         list = realloc(list, sizeof(char *) * (i + 1));
+        if (!list) {
+            printf("Realloc failed\n");
+            free(list);
+            exit(1);
+        }
         list[i - 1] = get_word(&flag);
         i++;
     } while (!flag);

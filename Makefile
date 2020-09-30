@@ -3,6 +3,6 @@ SRC = sources/main.c sources/read.c sources/redirect.c
 gcc: 
 	gcc $(SRC) -o splash -Wall
 clang: 
-	clang $(SRC) -o clang -Wall
+	clang $(SRC) -o splash -Wall
 debug:
 	gcc $(SRC) -o splash -Wall -pedantic -fsanitize=leak,address
