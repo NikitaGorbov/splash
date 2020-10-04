@@ -22,4 +22,8 @@ make
 ```sh
 make clang
 ```
-After compiling you can simply run the created executable `splash`
+
+After compiling you can simply run the created executable `splash` from the `bin` directory:
+```sh
+bin/splash
+```

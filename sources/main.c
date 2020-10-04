@@ -3,8 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
-#include "../include/read.h"
-#include "../include/redirect.h"
+#include "read.h"
+#include "redirect.h"
 
 // Free array of commands
 void free_cmd(char **cmd) {
