@@ -3,7 +3,6 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "../include/redirect.h"
 
 void remove_two_words(char **list, int i) {
     free(list[i]);
@@ -60,10 +59,10 @@ void restore_io(int inputfd, int outputfd,
                 const int constSTDIN, const int constSTDOUT) {
     if (outputfd != -1) {
         close(outputfd);
-        dup2(constSTDOUT, 1);
     }
+        dup2(constSTDOUT, 1);
     if (inputfd != 1) {
         close(inputfd);
-        dup2(constSTDIN, 0);
     }
+        dup2(constSTDIN, 0);
 }

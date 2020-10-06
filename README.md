@@ -8,6 +8,10 @@ A command-line shell for Linux made as part of my university studies.
 ## Features:
 - Executing programs with or without arguments
 - Redirecting input/output with '<' and '>' accordingly
+- Executing commands in a pipeline. For example:
+```sh
+grep include < input.txt | sort > output.txt
+```
 
 ## Installation:
 Requires `make`.
