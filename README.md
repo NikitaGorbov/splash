@@ -12,6 +12,12 @@ A command-line shell for Linux made as part of my university studies.
 ```sh
 grep include < input.txt | sort > output.txt
 ```
+- Changing directory with `cd`
+- Running programs in background. For example:
+```sh
+okular &
+```
+- Terminating programs with CTRL + C
 
 ## Installation:
 Requires `make`.
