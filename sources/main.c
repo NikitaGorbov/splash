@@ -45,6 +45,7 @@ void free_cmd(char **cmd) {
 // Searh the given command for the word "cd". If there is such word, change
 // directory, set the environment variable PWD accordingly and return 1. If
 // directory wasn't changed return 0;
+
 int change_directory(char **command) {
     char *PWD = getenv("PWD");
     char *path = NULL;
@@ -65,13 +66,13 @@ int change_directory(char **command) {
             return 0;
         }
         // Use relative path
-        if (path[0] != '/') {
-            strcat(PWD, "/");
-            strcat(PWD, path);
-        } else {
-            // Use absolute path
-            strcpy(PWD, path);
-        }
+        // if (path[0] != '/') {
+        //     strcat(PWD, "/");
+        //     strcat(PWD, path);
+        // } else {
+        //     // Use absolute path
+        //     strcpy(PWD, path);
+        // }
         PWD = getcwd(PWD, strlen(PWD) + strlen(path) + 1);
 
         free(path);
