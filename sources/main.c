@@ -36,7 +36,7 @@ char ***make_pipeline(char **cmd, int *numberOfPipes) {
 // Free the array of commands
 void free_cmd(char **cmd) {
     int i = 0;
-    while (cmd[i]) {
+    while (cmd[i]) { //new comment 2
         free(cmd[i]);
         i++;
     }
