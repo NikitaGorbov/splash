@@ -65,16 +65,8 @@ int change_directory(char **command) {
             free(path);
             return 0;
         }
-        // Use relative path
-        // if (path[0] != '/') {
-        //     strcat(PWD, "/");
-        //     strcat(PWD, path);
-        // } else {
-        //     // Use absolute path
-        //     strcpy(PWD, path);
-        // }
+        // It's better to use setenv or putenv
         PWD = getcwd(PWD, strlen(PWD) + strlen(path) + 1);
-
         free(path);
         return 1;
     }
@@ -115,8 +107,11 @@ int main() {
     // Terminate currently working program when recieve SIGINT. Defined in main
     // to have an access to bgPids array
     void sig_handler(int sig) {
-        kill(pid, 2);
         write(constSTDOUT, "\n", 1);
+        // if pid == 0, there are no running processes
+        if (pid) {
+            kill(pid, SIGINT);
+        }
     }
 
     signal(SIGINT, sig_handler);
@@ -124,6 +119,7 @@ int main() {
     bgCounter = 0;
 
     while (1) {
+        pid = 0;
         cmd = NULL;
         printf("$ ");
         // Get a command

@@ -7,7 +7,10 @@ char *get_word(int *endOfLineFlag) {
     int i = 1;
 
     do {
-        c = getchar();
+        if ((c = getchar()) == EOF) {
+            // Input stream ended, exit the shell
+            exit(0);
+        }
         word = realloc(word, sizeof(char) * (i + 1));
         if (!word) {
             printf("Realloc failed\n");

@@ -2,7 +2,7 @@
 
 <img src="images/logo.png" align="right" width="200" heigth="200">
 
-#### Super Powerful Lightweight Advanced SHell
+#### Super Powerful Lightweight Advanced SHell <sub>yes, it's ridiculous on purpose.</sub>
 A command-line shell for Linux made as part of my university studies.
 
 ## Features:
